@@ -17,8 +17,8 @@ jobs:
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.4.227.212.179 }}
-          username: ${{ secrets.azureuser }}
+          host: ${{ secrets.VM_IP }}
+          username: ${{ secrets.VM_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /opt/terraform-learn
