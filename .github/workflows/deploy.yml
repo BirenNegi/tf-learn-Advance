@@ -1,0 +1,32 @@
+name: Deploy to Azure VM
+
+on:
+  push:
+    branches:
+      - main          # or 'master' if that's your default branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Checkout the code (optional, but useful for debugging)
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. SSH into the VM and run deployment commands
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.4.227.212.179 }}
+          username: ${{ secrets.azureuser }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /opt/terraform-learn
+            git pull origin main
+            npm install
+            cd terminal-server
+            npm install
+            cd ..
+            pm2 restart terraform-web
+            pm2 restart terraform-terminal
+            echo "Deployment finished at $(date)"
