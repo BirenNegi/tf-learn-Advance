@@ -1,0 +1,6 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Terraform Learn | Dashboard</title><link rel="stylesheet" href="/css/style.css"></head>
+<body><header><h1>🚀 Terraform on Azure</h1><p>30 days to infrastructure mastery</p></header>
+<main><% phases.forEach(phase => { %><section class="phase"><h2><%= phase.name %></h2><p><%= phase.description %></p><div class="days-grid"><% days.filter(d => d.phase === phase.id).forEach(day => { %><a href="/day/<%= day.id %>" class="day-card"><span class="day-number">Day <%= day.id %></span><h3><%= day.title %></h3><div class="badges"><span>📘 Theory</span><span>🔬 Lab</span><span>🎯 Challenge</span></div></a><% }) %></div></section><% }) %></main>
+<footer><p>Interactive Terraform Course – with AI Tutor & Terminal</p></footer></body></html>

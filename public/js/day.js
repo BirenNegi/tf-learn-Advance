@@ -1,0 +1,2 @@
+document.querySelectorAll('.tab-btn').forEach(btn => { btn.addEventListener('click', () => { const tabId = btn.getAttribute('data-tab'); document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active')); document.getElementById(tabId).classList.add('active'); }); });
+document.getElementById('submitChallenge')?.addEventListener('click', () => { alert('Challenge submitted! (In production, this would send your code to a reviewer.)'); });

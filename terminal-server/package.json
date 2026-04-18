@@ -1,0 +1,5 @@
+{
+  "name": "terraform-terminal",
+  "version": "1.0.0",
+  "dependencies": { "ws": "^8.14.2", "dockerode": "^4.0.2" }
+}
