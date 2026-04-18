@@ -1,10 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Day <%= day.id %>: <%= day.title %> | Terraform Learn</title><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm/css/xterm.css" /></head>
-<body><header><h1>Day <%= day.id %>: <%= day.title %></h1><div class="phase-badge"><%= getPhase(day.phase).name %></div><div class="nav-buttons"><% if (prev) { %><a href="/day/<%= prev.id %>" class="btn">← Previous</a><% } %><% if (next) { %><a href="/day/<%= next.id %>" class="btn">Next →</a><% } %><a href="/day/<%= day.id %>/deep-dive" class="btn btn-ai">🤖 AI Deep Dive</a></div></header>
-<main><div class="tabs"><button class="tab-btn active" data-tab="theory">📘 Theory</button><button class="tab-btn" data-tab="lab">🔬 Hands-on Lab</button><button class="tab-btn" data-tab="challenge">🎯 Challenge</button><button class="tab-btn" data-tab="terminal">🖥️ Terminal</button></div>
-<div class="tab-content active" id="theory"><div class="prose"><%- day.theory %></div></div>
-<div class="tab-content" id="lab"><div class="prose"><%- day.lab %></div></div>
-<div class="tab-content" id="challenge"><div class="prose"><%- day.challenge %></div><button id="submitChallenge" class="btn">Submit Challenge (Mock)</button></div>
-<div class="tab-content" id="terminal"><div id="terminal-container"></div><div class="terminal-help"><p>💡 Tip: Use `terraform init`, `plan`, `apply` – this terminal runs in a Docker sandbox.</p></div></div></main>
-<script src="https://cdn.jsdelivr.net/npm/xterm/lib/xterm.js"></script><script src="/js/terminal.js"></script><script src="/js/day.js"></script></body></html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day <%= day.id %>: <%= day.title %> | Terraform Learn</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm/css/xterm.css" />
+</head>
+<body>
+    <header>
+        <h1>Day <%= day.id %>: <%= day.title %></h1>
+        <div class="phase-badge"><%= phase.name %></div>
+        <div class="nav-buttons">
+            <% if (prev) { %>
+                <a href="/day/<%= prev.id %>" class="btn">← Previous</a>
+            <% } %>
+            <% if (next) { %>
+                <a href="/day/<%= next.id %>" class="btn">Next →</a>
+            <% } %>
+            <a href="/day/<%= day.id %>/deep-dive" class="btn btn-ai">🤖 AI Deep Dive</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="theory">📘 Theory</button>
+            <button class="tab-btn" data-tab="lab">🔬 Hands-on Lab</button>
+            <button class="tab-btn" data-tab="challenge">🎯 Challenge</button>
+            <button class="tab-btn" data-tab="terminal">🖥️ Terminal</button>
+        </div>
+
+        <div class="tab-content active" id="theory">
+            <div class="prose"><%- day.theory %></div>
+        </div>
+        <div class="tab-content" id="lab">
+            <div class="prose"><%- day.lab %></div>
+        </div>
+        <div class="tab-content" id="challenge">
+            <div class="prose"><%- day.challenge %></div>
+            <button id="submitChallenge" class="btn">Submit Challenge (Mock)</button>
+        </div>
+        <div class="tab-content" id="terminal">
+            <div id="terminal-container"></div>
+            <div class="terminal-help">
+                <p>💡 Tip: Use `terraform init`, `plan`, `apply` – this terminal runs in a Docker sandbox.</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/xterm/lib/xterm.js"></script>
+    <script src="/js/terminal.js"></script>
+    <script src="/js/day.js"></script>
+</body>
+</html>
